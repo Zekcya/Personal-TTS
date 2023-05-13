@@ -1,4 +1,5 @@
-﻿<Window x:Class="MyTTS.MainWindow"
+﻿<!-- The main Window for the TTS application -->
+<Window x:Class="MyTTS.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
@@ -8,6 +9,7 @@
         FontFamily="Roboto"
         materialDesign:ShadowAssist.ShadowDepth="Depth2">
 
+    <!-- The resources for the window, including Material Design themes and colors -->
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -19,6 +21,7 @@
         </ResourceDictionary>
     </Window.Resources>
 
+    <!-- The main layout grid for the window -->
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -26,13 +29,16 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
+        <!-- The top row of the grid, containing ComboBoxes for voice and audio output selection -->
         <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top">
             <ComboBox x:Name="VoiceComboBox" Width="200" SelectionChanged="VoiceComboBox_SelectionChanged" Margin="0,0,10,0" materialDesign:HintAssist.Hint="Select Voice"/>
             <ComboBox x:Name="AudioOutputComboBox" Width="200" SelectionChanged="AudioOutputComboBox_SelectionChanged" materialDesign:HintAssist.Hint="Select Audio Output"/>
         </StackPanel>
 
+        <!-- The middle row of the grid, containing a TextBox for text input -->
         <TextBox x:Name="InputTextBox" Grid.Row="1" HorizontalAlignment="Stretch" Margin="10,20,10,20" TextWrapping="Wrap" VerticalAlignment="Stretch" materialDesign:HintAssist.Hint="Type text to speak"/>
 
+        <!-- The bottom row of the grid, containing Buttons for speaking and stopping the speech -->
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,10" VerticalAlignment="Bottom">
             <Button x:Name="SpeakButton" Content="Speak" Width="100" Click="SpeakButton_Click" Margin="0,0,10,0" Style="{DynamicResource MaterialDesignFlatButton}"/>
             <Button x:Name="StopButton" Content="Stop" Width="100" Click="StopButton_Click" Style="{DynamicResource MaterialDesignFlatButton}"/>
